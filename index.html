@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.plan {
+			position: relative;
+			display: inline-block;
+			border: 1px solid silver;
+		}
+		.plan img {
+			display: block;
+		}
+		svg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+		path {
+			stroke-width: 3;
+			cursor: pointer;
+		}
+		.flat1 {
+			stroke: #ff0;
+			fill: rgba(255, 255, 0, 0.3);
+		}
+		.flat2 {
+			stroke: #00f;
+			fill: rgba(0, 0, 255, 0.3);
+		}
+		.flat1:hover {
+			fill: rgba(255, 255, 0, 0.6);
+		}
+		.flat2:hover {
+			fill: rgba(0, 0, 255, 0.6);
+		}
+	</style>
+</head>
+<body>
+	<div class="plan">
+		<img src="flats.jpg" alt="flats">
+		<svg viewBox="0 0 790 571" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<text class="text-flat1" x="" y="">Flat 1</text>
+			<text class="text-flat2" x="" y="">Flat 2</text>
+			<path class="flat1" data-href="flat1.html" d="M 28,28 h 201 v 293 h 55 v 28 h 56 v 140 h -312 z" />
+			<path class="flat2" data-href="flat2.html" d="M 415,28 h 346 v 461 h -414 v -142 h 68 v -324 z " />
+		</svg>
+	</div>
+	<script>
+		document.querySelectorAll('svg path').forEach(function(flat){
+			flat.onclick = function(){
+				location.replace(this.dataset.href);
+			}
+		});
+	</script>
+</body>
+</html>
